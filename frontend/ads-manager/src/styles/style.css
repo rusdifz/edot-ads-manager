@@ -1,0 +1,484 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.edot-header {
+  background: #FFFFFF;
+  box-shadow: 0px 5px 10px rgba(63, 66, 83, 0.04);
+}
+.edot-btn-primary {
+  @apply bg-edot-primary !important;
+  @apply border-edot-primary !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+.edot-btn-secondary {
+  background-color: #FDE6F3 !important;
+  @apply text-edot-primary !important;
+  border-color: #FDE6F3 !important;
+  font-weight: 600;
+}
+
+.primary-badge {
+  background-color: #D5FAFD;
+  padding: 4px 10px;
+  border: 1px solid #2BBECB;
+  border-radius: 20px;
+  color: #444444;
+}
+
+.secondary-badge {
+  @apply bg-edot-primary;
+  padding: 4px 10px;
+  @apply border-edot-primary;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.neutral-badge {
+  background-color: #F4F4F4;
+  padding: 4px 10px;
+  border: 1px solid #AAAAAA;
+  border-radius: 20px;
+  color: #444444;
+}
+
+.notif-badge {
+  @apply bg-edot-main;
+  @apply text-xs;
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.logo {
+  height: 50px;
+  margin: 20px 25px 2rem;
+}
+
+.container-layout {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.site-layout .site-layout-content {
+  background: #fff;
+  min-height: 100%;
+  box-shadow: 0px 5px 20px rgba(63, 66, 83, 0.04);
+  border-radius: 5px;
+  padding: 24px;
+}
+
+.header-title {
+  color: #181C32;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.media .active img {
+  border: 2px solid #2BBECB;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-payment {
+  display: flex;
+  justify-content: center;
+}
+.mobile-payment .note {
+  background: #F4FBFC;
+  border-radius: 4px;
+  @apply py-2;
+  @apply px-3;
+  @apply font-normal;
+  @apply text-base;
+}
+
+.mobile-wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 760px;
+  margin: auto;
+}
+.mobile-wrapper .ant-tabs-tab {
+  padding: 12px 120px;
+}
+.mobile-wrapper .note {
+  background: #F4FBFC;
+  border-radius: 4px;
+  @apply py-2;
+  @apply px-3;
+  @apply font-normal;
+  @apply text-base;
+}
+.mobile-wrapper .primary-badge {
+  background-color: #FDE6F3;
+  padding: 4px 10px;
+  border: 1px solid #FDE6F3;
+  border-radius: 20px;
+  @apply text-edot-primary;
+}
+.mobile-wrapper .secondary-badge {
+  background-color: #F4F4F4;
+  padding: 4px 10px;
+  border: 1px solid #F4F4F4;
+  border-radius: 20px;
+  color: #AAAAAA;
+}
+.img-wrapper {
+  width: max-content;
+  @apply border-dashed;
+  @apply rounded-lg;
+  border-color: #DDDDDD;
+  @apply border;
+  @apply p-4;
+  @apply mt-2;
+}
+.upload-img {
+  @apply flex;
+  @apply items-center;
+  @apply mx-auto;
+  @apply flex-col;
+  width: max-content;
+  @apply border-dashed;
+  border-radius: 12px;
+  border-color: #DDDDDD;
+  color: #aaa;
+  @apply text-sm;
+  @apply border;
+  @apply py-2;
+  @apply px-20;
+  @apply mt-2;
+}
+.scrollbar-inner {
+  @apply whitespace-nowrap;
+  overflow-x: hidden;
+}
+.scrollbar-inner:hover {
+  overflow-x: auto;
+}
+.scrollbar-inner::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-inner::-webkit-scrollbar-track {
+  border-radius: 100px;
+  background: lightgray;
+}
+.scrollbar-inner::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: #aaa;
+}
+
+.icon-bank {
+  margin-right: 1rem;
+}
+
+#ads-status {
+  @apply w-fit;
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply text-sm;
+  border-radius: 6px;
+  @apply p-2;
+}
+
+#filter-search {
+  background-color: #f9f9f9;
+  @apply text-xs;
+  @apply rounded-lg; 
+  max-height: 0;
+  transition: max-height .3s ease-out;
+  -webkit-transition: max-height .3s ease-out;
+  -moz-transition: max-height .3s ease-out;
+  -o-transition: max-height .3s ease-out;
+}
+#filter-search.show {
+  max-height: 300px;
+  transition: max-height .3s ease-out;
+  -webkit-transition: max-height .3s ease-out;
+  -moz-transition: max-height .3s ease-out;
+  -o-transition: max-height .3s ease-out;
+}
+
+.media-upload {
+  border: 1px dashed #DDDDDD;
+  border-radius: 8px;
+  padding: 4rem;
+}
+
+.alert-warning {
+  background: #FFFBDF;  
+  border: 1px solid #FFE12E;
+  border-radius: 4px;
+  @apply p-3;
+  @apply flex;
+  @apply justify-between;
+  font-size: 10px;
+}
+
+.income {
+  color: #01A862;
+  color: 700;
+  @apply text-base;
+}
+
+.payout {
+  color: #C81A19;  
+  color: 700;
+  @apply text-base;
+}
+
+#payment span:nth-child(2){
+  display: flex !important;
+  align-items: center;
+}
+
+.modal-payment-success .ant-modal-content {
+  @apply bg-edot-primary;
+  background-image: url('src/assets/img/payment-bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pincode-input-container .pincode-input-text {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* ANT CSS DESIGN CUSTOM */
+a.ant-dropdown-trigger {
+  color: #444444!important;
+}
+aside.ant-layout-sider {
+  flex: 0 0 230px !important;
+  max-width: 230px !important;
+  min-width: 230px !important;
+  width: 230px !important;
+}
+.ant-layout-sider-trigger {
+  width: 230px !important;
+  background-color: #165F66;
+}
+.ant-layout-sider-children ul {
+  @apply bg-transparent !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+.ant-layout-sider-children ul li.ant-menu-item {
+  margin-bottom: 0 !important;
+  padding-left: 16px !important;
+}
+.ant-layout-sider-children ul li.ant-menu-item-selected {
+  @apply bg-edot-primary !important;
+  border-radius: 6px;
+}
+.ant-layout-sider-children ul li.ant-menu-item span.ant-menu-item-icon {
+  color: #fff !important;
+  font-size: 20px;
+}
+.ant-layout-sider-children ul li.ant-menu-item a {
+  color: #fff !important;
+  font-size: 13px !important;
+}
+ul.ant-dropdown-menu {
+  border: 1px solid #AAAAAA;
+  border-radius: 8px !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  @apply text-edot-main !important;
+}
+.ant-tabs-tab:hover {
+  @apply text-edot-main !important;
+}
+.ant-tabs-ink-bar {
+  border-bottom: 2px solid #2BBECB;
+}
+.ant-switch-checked {
+  background-color: #2BBECB !important;
+}
+button.ant-switch {
+  background-color: #DDDDDD;
+}
+.img-profile img {
+  height: 48px;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.img-campaign img {
+  height: 160px;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.ant-pagination-item-active, 
+.ant-pagination-item-active a {
+  color: #2BBECB !important;
+  border-color: #2BBECB !important;
+}
+.ant-pagination-item:hover,
+.ant-pagination-item-link:hover,
+.ant-pagination-item a:hover {
+  color: #2BBECB !important;
+  border-color: #2BBECB !important;
+}
+.ant-table-thead tr th {
+  background-color: #F4F4F4 !important;
+  color: #666666 !important;
+  font-size: 12px !important;
+}
+.ant-popover-arrow-content::before,
+.ant-popover-inner {
+  background-color: #F4FBFC !important;
+  font-weight: 600;
+}
+.ant-modal-content, .ant-modal-header {
+  border-radius: 16px !important;
+}
+.ant-input, .ant-select-selector {
+  border-radius: 8px !important;
+}
+.ant-btn[disabled] {
+  background-color: #DDDDDD !important;
+  border-color: #DDDDDD !important;
+  color: #FFFFFF !important;
+}
+
+.ant-message-notice-content {
+  @apply p-0;
+  border-radius: 8px;
+}
+
+.ant-message-custom-content {
+  @apply flex;
+  @apply items-center;
+}
+/* div:is(.ant-message-notice-content) .ant-message-custom-content.ant-message-error {
+  background-color: #ff4d4f;
+  border-radius: 8px;
+} */
+.ant-message-notice-content .ant-message-error {
+  background-color: #ff4d4f;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.ant-message-notice-content .ant-message-success {
+  background-color: #01A862;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.ant-message-notice-content .ant-message-warning {
+  background-color: #faad14;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.ant-message-notice-content .ant-message-info {
+  background-color: #1890ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.ant-message-notice-content .ant-message-loading {
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.ant-message-notice-content .ant-message-loading .text-white {
+  color: #444;
+}
+.ant-page-header {
+  padding: 0 !important;
+}
+.ant-page-header-heading-title {
+  font-size: 18px !important;
+  line-height: normal !important;
+}
+.ant-message-success .anticon,
+.ant-message-error .anticon,
+.ant-message-warning .anticon,
+.ant-message-info .anticon {
+  color: #fff;
+}
+.top-up .ant-input {
+  background-color: transparent;
+  @apply text-lg;
+  @apply text-edot-primary;
+  @apply text-right;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  flex-direction: row-reverse;
+  font-size: 13px;
+  padding: 14px 0;
+}
+.ant-collapse {
+  background-color: transparent !important;
+  border: none !important;
+}
+.ant-collapse-content {
+  border-top: none !important;
+}
+.chart-btn .ant-radio-button-checked {
+  @apply bg-edot-primary;
+  border-color: #EB008B;
+}
+
+.chart-btn .ant-radio-button-wrapper:first-child .ant-radio-button-checked {
+  border-radius: 8px 0 0 8px !important;
+}
+.chart-btn .ant-radio-button-wrapper:last-child .ant-radio-button-checked {
+  border-radius: 0 8px 8px 0 !important;
+}
+.chart-btn .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+  @apply bg-edot-primary;
+}
+.chart-btn .ant-radio-button-wrapper.ant-radio-button-wrapper-checked {
+  color: #fff;
+}
+.chart-btn .ant-radio-button-wrapper {
+  border-color: #EB008B;
+  color: #F799D1;
+  border: 1px solid #EB008B;
+  font-size: 11px !important;
+}
+.chart-btn .ant-radio-button-wrapper-checked:not([class*=' ant-radio-button-wrapper-disabled']).ant-radio-button-wrapper:first-child {
+  border-color: #EB008B;
+}
+.ant-select-dropdown {
+  border-radius: 16px !important;
+}
+.ant-list-header {
+  background-color: #F4F4F4;
+  padding: 6px 0;
+}
+.ant-picker {
+  border-radius: 8px;
+}
+.ant-input-affix-wrapper {
+  border-radius: 8px;
+}
+.ant-form-item-label > label::after {
+  content: '';
+}
+.ant-image-preview-img {
+  display: initial;
+}
+.ant-progress-success-bg,
+.ant-progress-bg {
+ @apply bg-edot-main;
+}
+.ant-progress-status-success .ant-progress-bg {
+  @apply bg-edot-main;
+}
+.ant-upload-picture-card-wrapper {
+  display: inline-flex;
+  justify-content: center;
+}
+.ant-upload.ant-upload-select-picture-card {
+  background-color: transparent;
+  border: none;
+}

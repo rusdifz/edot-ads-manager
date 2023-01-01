@@ -1,0 +1,184 @@
+{
+  "name": "ads-manager-package",
+  "version": "0.1.0",
+  "description": "test",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native": "src/index.tsx",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "android",
+    "ios",
+    "cpp",
+    "ads-manager-package.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!ios/build"
+  ],
+  "scripts": {
+    "test": "jest",
+    "typescript": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "bootstrap": "yarn example && yarn && yarn example pods",
+    "postinstall": "patch-package"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": "https://gitlab.com/maintainer-smartek/edot-ads-manager",
+  "author": "smartek <azmi.roqi@smarteksistem.com> (https://gitlab.com/azmi.smartek)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/maintainer-smartek/edot-ads-manager/issues"
+  },
+  "homepage": "https://gitlab.com/maintainer-smartek/edot-ads-manager#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@arkweid/lefthook": "^0.7.7",
+    "@babel/eslint-parser": "^7.18.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@react-native-community/eslint-config": "^3.0.2",
+    "@release-it/conventional-changelog": "^5.0.0",
+    "@types/jest": "^28.1.2",
+    "@types/react": "17.0.2",
+    "@types/react-native": "0.68.2",
+    "commitlint": "^17.0.2",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.1.1",
+    "pod-install": "^0.1.0",
+    "prettier": "^2.0.5",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-builder-bob": "^0.18.3",
+    "release-it": "^15.0.0",
+    "typescript": "^4.5.2"
+  },
+  "resolutions": {
+    "@types/react": "17.0.21"
+  },
+  "peerDependencies": {
+    "@react-native-community/datetimepicker": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-gesture-handler": "*",
+    "react-native-image-crop-picker": "*",
+    "react-native-linear-gradient": "*",
+    "react-native-pager-view": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-svg": "*",
+    "react-native-maps": "*"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@babel/eslint-parser",
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "quoteProps": "consistent",
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "useTabs": false,
+          "printWidth": 100
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "printWidth": 100
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ],
+    "typescript": [
+      "typescript",
+      {
+        "project": "tsconfig.build.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.0",
+    "@react-native-community/datetimepicker": "^6.5.3",
+    "@react-navigation/native": "^6.0.11",
+    "@react-navigation/stack": "^6.2.2",
+    "@reduxjs/toolkit": "^1.8.6",
+    "graphql": "^16.6.0",
+    "moment": "^2.29.4",
+    "patch-package": "^6.5.0",
+    "postinstall-postinstall": "^2.1.0",
+    "react-native-gifted-charts": "^1.2.41",
+    "react-native-image-crop-picker": "^0.38.1",
+    "react-native-maps": "^1.3.2",
+    "react-native-modalize": "^2.0.13",
+    "react-native-popup-menu": "^0.15.13",
+    "react-native-portalize": "^1.0.7",
+    "react-native-render-html": "^6.3.4",
+    "react-native-tab-view": "^3.1.1",
+    "react-native-toast-notifications": "^3.3.1",
+    "react-redux": "^8.0.4"
+  }
+}

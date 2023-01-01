@@ -1,0 +1,42 @@
+version: '3.8'
+
+networks:
+  backend-ads:
+    driver: bridge
+
+services:
+  postgresdb:
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ~/EdotAdsPgData:/var/lib/postgresql/data
+    restart: on-failure
+    networks:
+      - backend-ads
+
+  app:
+    container_name: golang_container
+    environment:
+      POSTGRES_HOST: postgresdb
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PORT: 5432
+      GIN_MODE: release
+    build: 
+      context: .
+      dockerfile: vps.Dockerfile
+    restart: on-failure
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+    depends_on:
+      - postgresdb
+    networks:
+      - backend-ads

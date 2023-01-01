@@ -1,0 +1,8 @@
+*.env
+tmp
+bin\
+bin/
+bin
+.idea
+.vscode
+.env*

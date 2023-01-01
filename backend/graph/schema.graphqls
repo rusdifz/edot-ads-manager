@@ -1,0 +1,790 @@
+# USER SETTING
+
+type User {
+  id: ID!
+  fullname: String!
+  username: String!
+  profile_picture: String
+}
+
+type Business {
+  id: ID!
+  name: String!
+  owner: Int!
+}
+
+type AdsAccountMember {
+  id: ID!
+  role: String!
+  is_approver: Boolean!
+  is_me: Boolean
+  user: User
+  created_at: String!
+  updated_at: String!
+}
+
+type AdsAccount {
+  id: ID!
+  ads_account_name: String!
+  account_type: String!
+  user: User
+  business: Business
+  approver_mode: Boolean!
+  created_at: String!
+  updated_at: String!
+  wallet_ad_id: ID!
+  ads_account_members: [AdsAccountMember!]
+}
+
+type NestedAdsAccount {
+  id: ID!
+  ads_account_name: String!
+  account_type: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type SimpleAdsAccount {
+  id: ID!
+  ads_account_name: String!
+  account_type: String!
+}
+
+type MyAccountInvitation {
+  id: ID!
+  ads_account: NestedAdsAccount!
+  role: String!
+  ads_invitation_status: String!
+  user_inviter: User!
+  created_at: String!
+  updated_at: String!
+}
+
+type AdsAccountInvitation {
+  id: ID!
+  ads_account_id: Int!
+  role: String!
+  ads_invitation_status: String!
+  user_inviter_id: Int!
+  user_invited_id: Int!
+  created_at: String!
+  updated_at: String!
+}
+
+type MyAccountRequest {
+  id: ID!
+  ads_account: NestedAdsAccount!
+  role: String!
+  ads_invitation_status: String!
+  user_invited: User!
+  created_at: String!
+  updated_at: String!
+}
+
+enum AccountType {
+  BUSINESS
+  PERSONAL
+}
+
+enum CampaignStatusType {
+  DRAFT
+  TEAM_APPROVAL
+  ADMIN_APPROVAL
+  LIVE
+  CAMPAIGN_REJECTED
+  PUBLISHED
+  TEAM_PAUSED
+  ADMIN_PAUSED
+}
+
+enum GenderType {
+  MALE
+  FEMALE
+}
+
+enum RecordedType {
+  RECORD
+  FAILED_RECORD
+}
+
+enum UserType {
+  MEMBER
+  APPROVER
+  ADMINZEUS
+  SYSTEM
+}
+
+type WalletAds {
+  walletAdsId: ID!
+  balance: Float!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type ContentProperty {
+  key: String!
+  type: String!
+  example_value: String!
+  url_source: String
+  json_key_id: String
+  json_key_label: String
+}
+
+type SpecialProperty {
+  query_param: String!
+  type: String!
+  url_source: String
+  json_key_id: String
+  json_key_label: String
+}
+
+type AdsPlacement {
+  id: ID!
+  ads_placement_name: String!
+  base_duration_cost: Float!
+  base_view_cost: Float!
+  view_cost_increment: Float!
+  base_click_cost: Float!
+  click_cost_increment: Float!
+  base_conversion_cost: Float!
+  conversion_cost_increment: Float!
+  discount_percentage: Float!
+  is_discount_all: Boolean!
+  description: String!
+  is_active: Boolean!
+  content_properties: [ContentProperty!]!
+  html_view: String!
+  special_filter_properties: [SpecialProperty]!
+  is_restricted: Boolean!
+  restricted_type: String
+  is_clicked: Boolean!
+  is_conversion: Boolean!
+  created_at: String!
+  updated_at: String!
+  ads_account_receiving_discounts: [SimpleAdsAccount]!
+  ads_account_restricted_placements: [SimpleAdsAccount]!
+}
+
+type AdsAccountReceivingDiscount {
+  placementAdsAccountDsicount: ID!
+  adsAccountId: ID!
+  adsPlacementId: ID!
+}
+
+type ResponseAdsListAccount {
+  adsAccountId: ID!
+  adsAccountName: String!
+}
+
+type propertiesUpdate {
+  namePropertie: String!
+  valuePropertie: String!
+}
+
+type ResponseSubcribe {
+  event: String!
+  properties: [propertiesUpdate!]!
+}
+
+type PlacementContent {
+  id: ID!
+  content: String
+  special_filter: String
+  cost_duration_bid: Float
+  cost_view_bid: Float
+  cost_click_bid: Float
+  cost_conversion_bid: Float
+  ads_placement_id: Int!
+  ads_content_id: Int!
+  ads_placement: AdsPlacement!
+  ads_content: AdsContent!
+  created_at: String!
+  updated_at: String!
+}
+
+type DeletedPlacementContent {
+  result: String!,
+  placement_content: PlacementContent
+}
+
+input InputPlacementContent {
+  ads_placement_id: Int!
+  content: String
+  special_filter: String
+  cost_duration_bid: Float
+  cost_view_bid: Float
+  cost_click_bid: Float
+  cost_conversion_bid: Float
+}
+
+input InputPlacementContentDirect {
+  ads_placement_id: Int!
+  ads_content_id: Int!
+  content: String
+  special_filter: String
+  cost_duration_bid: Float
+  cost_view_bid: Float
+  cost_click_bid: Float
+  cost_conversion_bid: Float
+}
+
+input InputUpdatePlacementContent {
+  id: ID!
+  content: String
+  special_filter: String
+  cost_duration_bid: Float
+  cost_view_bid: Float
+  cost_click_bid: Float
+  cost_conversion_bid: Float
+}
+
+type ResponseAdsCampaign {
+  NameCampaign: String!
+  StatusCampaign: String!
+  Objective: String!
+  AudienceName: String!
+  ContentName: String!
+  Description: String!
+  LatestUpdate: String!
+  CampaingProperties: Campaign!
+  AudienceProperties: Audience!
+  ContentProperties: ContentProperty!
+  RejectionHistory: String!
+}
+
+type ResponseAdsAudience {
+  AudienceName: String!
+  Location: String!
+  Gender: String!
+  Age: String!
+  Interest: String!
+  Published: Int!
+  Live: Int!
+  Draft: Int!
+  AudienceProperties: Audience!
+  LatestUpdate: String!
+}
+
+type ResponseAdsContent {
+  ContentName: String!
+  Placements: [AdsPlacement!]
+  Published: Int!
+  Live: Int!
+  Draft: Int!
+  AdsContentProperties: AdsContent!
+  LastUpdated: String!
+}
+
+input CreateAdsAccount {
+  adsAccountId: ID!
+  adsAccountName: String!
+  adsAccountType: AccountType!
+  walletAdsId: Int!
+  userId: Int!
+  businessId: Int!
+  createdAt: String!
+}
+
+input CreateAdsWalletAccount {
+  walletAdsId: ID!
+  balance: Float!
+  createdAt: String!
+}
+
+input EditPropertiesAdsPlacement {
+  baseDurationCost: Int!
+  adsPlacementName: String!
+  baseViewCost: Int!
+  viewCostIncremental: Int!
+  baseClickCost: Int!
+  clickCostIncrement: Int!
+  baseTransactionCost: Int!
+  incrementalTransactionCost: Int!
+  discountCost: Int!
+}
+
+input InputEditAdsAccountName {
+  adsAccountId: ID!
+  adsAccountName: String!
+}
+
+type Subscription {
+  messageUpdateAdsPlacementEvent: ResponseSubcribe!
+}
+
+input RemoveUserFromAdsAccount {
+  adsAccountId: ID!
+  userId: Int!
+}
+
+input InputSelectApprover {
+  adsMemberId: ID!
+  isDisable: Boolean
+}
+
+input InputLeaveAdsAccount {
+  adsAccountId: Int!
+}
+
+input InputEditUserRole {
+  adsAccountId: Int!
+  userId: Int!
+  userRole: String!
+}
+
+input InputInviteMember {
+  userIdInvited: Int!
+  role: String!
+  adsAccountId: Int!
+}
+
+input InputRespondInvitation {
+  adsInvitationId: Int!
+  isApprove: Boolean!
+}
+
+type ResponseRespondInvitation {
+  updatedInvitation: AdsAccountInvitation
+  newAdsAccount: AdsAccount
+}
+
+type ResponseCancelInvitation {
+  adsInvitationId: Int!
+  userIdInviter: Int!
+  userNameInviter: String!
+  userIdInvited: Int!
+  userNameInvited: String!
+  userRoleInvited: String!
+  adsAccountId: Int!
+  adsAccountName: String!
+  invitationStatus: String!
+  timestampCreated: String!
+  timestampUpdated: String!
+}
+
+input InputCancelInvitation {
+  adsInvitationId: Int!
+}
+
+input InputContentProperty {
+  key: String!
+  type: String!
+  example_value: String!
+  url_source: String
+  json_key_id: String
+  json_key_label: String
+}
+
+input InputSpecialProperty {
+  query_param: String!
+  type: String!
+  url_source: String
+  json_key_id: String
+  json_key_label: String
+}
+
+input InputId {
+  id: ID!
+}
+
+input InputAdsPlacement {
+  ads_placement_name: String!
+  base_duration_cost: Float!
+  base_view_cost: Float!
+  view_cost_increment: Float!
+  base_click_cost: Float!
+  click_cost_increment: Float!
+  base_conversion_cost: Float!
+  conversion_cost_increment: Float!
+  discount_percentage: Float!
+  is_discount_all: Boolean!
+  description: String!
+  is_active: Boolean!
+  content_properties: [InputContentProperty!]!
+  html_view: String!
+  special_filter_properties: [InputSpecialProperty!]
+  is_restricted: Boolean!
+  restricted_type: String
+  is_clicked: Boolean!
+  is_conversion: Boolean!
+  ads_account_receiving_discounts: [InputId!]
+  ads_account_restricted_placements: [InputId!]
+}
+
+input InputEditAdsPlacement {
+  id: ID!
+  ads_placement_name: String!
+  base_duration_cost: Float!
+  base_view_cost: Float!
+  view_cost_increment: Float!
+  base_click_cost: Float!
+  click_cost_increment: Float!
+  base_conversion_cost: Float!
+  conversion_cost_increment: Float!
+  discount_percentage: Float!
+  is_discount_all: Boolean!
+  description: String!
+  is_active: Boolean!
+  content_properties: [InputContentProperty!]!
+  html_view: String!
+  special_filter_properties: [InputSpecialProperty!]
+  is_restricted: Boolean!
+  restricted_type: String
+  is_clicked: Boolean!
+  is_conversion: Boolean!
+  ads_account_receiving_discounts: [InputId!]
+  ads_account_restricted_placements: [InputId!]
+}
+
+input InputToggleAdsPlacement {
+  id: ID!
+  is_active: Boolean!
+}
+
+type ResponseToggleAdsPacement {
+  id: ID!
+  is_active: Boolean!
+}
+
+input EventCampaignReview {
+  id: ID!
+  reason: String!
+  action: String!
+}
+
+input EventCampaignPublished {
+  id: ID!
+  reason: String!
+  action: String!
+}
+
+type ResponseEventCampaign {
+  result: String!
+  campaign: Campaign
+}
+
+type HistorySpending {
+  id: ID!
+  wallet_ad_id: ID!
+  amount: Float!
+  created_at: String!
+  updated_at: String!
+  campaign_id: ID!
+  campaign_name: String!
+  campaign_objective: String!
+}
+
+type HistoryTopup {
+  id: ID!
+  wallet_ad_id: ID!
+  amount: Float!
+  admin_fee: Float!
+  user_id: ID!, 
+  topup_method_id: Int!,
+  topup_method_name: String!
+  expired_at: String!,
+  created_at: String!,
+  updated_at: String!,
+  is_success: Boolean!
+}
+
+type DataAdsBalance {
+  id: ID!
+  ads_account_id: ID!
+  current_balance: Float!
+  history_spending: [HistorySpending]
+  history_topup: [HistoryTopup]
+}
+
+type CampaignHistories {
+  id: ID!
+  reason: String!
+  recorded_status: String!
+  user: User!
+  user_id_actor: Int!
+  user_type: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type Campaign {
+  id: ID!
+  ads_account_id: Int!
+  audience_id: Int
+  ads_content_id: Int
+  campaign_name: String!
+  campaign_objective: String
+  description: String
+  end_date: String
+  budget_limit: Float
+  campaign_status: String!
+  created_at: String!
+  updated_at: String!
+  audience: Audience
+  ads_content: AdsContent
+  campaign_histories: [CampaignHistories!]!
+}
+
+type DeletedCampaign {
+  result: String!
+  campaign: Campaign
+}
+
+input InputCampaign {
+  ads_account_id: Int!
+  audience_id: Int
+  ads_content_id: Int
+  campaign_name: String!
+  campaign_objective: String
+  description: String
+  end_date: String
+  budget_limit: Float
+}
+
+input InputUpdateCampaign {
+  id: ID!
+  audience_id: Int
+  ads_content_id: Int
+  campaign_name: String!
+  campaign_objective: String!
+  campaign_status: String!
+  description: String!
+  end_date: String
+  budget_limit: Float!
+}
+
+input CampaignsFilter {
+  ads_account_id: Int
+  campaign_status: String
+  range_filter: RangeFilter
+}
+
+type Audience {
+  id: ID!
+  ads_account_id: Int!
+  address: String
+  audience_name: String!
+  age: String
+  created_at: String!
+  updated_at: String!
+  gender: String
+  interest: String
+  locations: String
+  campaigns: [Campaign!]
+}
+
+type DeletedAudience {
+  result: String!
+  audience: Audience
+}
+
+input InputAudience {
+  ads_account_id: Int!
+  audience_name: String!
+  address: String
+  age: String
+  gender: String
+  interest: String
+  locations: String
+}
+
+input InputUpdateAudience {
+  id: ID!
+  audience_name: String
+  address: String
+  age: String
+  gender: String
+  interest: String
+  locations: String
+}
+
+input AudienceFilter {
+  ads_account_id: Int
+  range_filter: RangeFilter
+}
+
+type AdsContent {
+  id: ID!
+  ads_account_id: Int!
+  ads_content_name: String!
+  created_at: String!
+  updated_at: String!
+  placement_contents: [PlacementContent!]!
+  campaigns: [Campaign!]!
+}
+
+type DeletedAdsContent {
+  result: String!
+  ads_content: AdsContent
+}
+
+input InputAdsContent {
+  ads_account_id: Int!
+  ads_content_name: String!
+  placement_contents: [InputPlacementContent!]
+}
+
+input InputUpdateAdsContent {
+  id: ID!
+  ads_content_name: String
+}
+
+input AdsContentsFilter {
+  ads_account_id: Int
+  range_filter: RangeFilter
+}
+
+type DataAdsCampaign {
+  campaign: Campaign
+  audience: Audience
+  content: AdsContent
+}
+
+type PaymentMethod {
+  id: Int!
+  name: String!
+  logo: String!
+  status: Int!
+  type: Int!
+  expiration_time: Int!
+  admin_fee_fixed: Float!
+  admin_fee_percent: Float!
+  min_price: Float!
+  max_price: Float!
+}
+
+type PaymentDetail {
+  partner_transaction_id: String!
+  user_id: String!
+  payment: Int!
+  order_id: String!
+  external_id: String!
+  price: Float!
+  price_raw: Float!
+  price_admin: Float!
+  status: Int!
+  Phone: String!
+  account_name: String!
+  va_number: String!
+  desktop_url: String!
+  mobile_url: String!
+  deep_link: String!
+  qr_code: String!
+  payment_code: String!
+  expired_at: String!
+  created_at: String!
+  updated_at: String!
+  payment_method: PaymentMethod!
+}
+
+input InputTopup {
+  amount: Float!
+  payment_method_id: Int!
+  wallet_ad_id: ID!
+  phone_number: String
+}
+
+input InputQueryAdsBalance {
+  ads_account_id: ID!
+  start_date: String
+  end_date: String
+}
+
+input RangeFilter {
+  start_date: String
+  end_date: String
+}
+
+type Query {
+  myAdsAccount: [AdsAccount!]!
+  myAccountInvitation: [MyAccountInvitation!]!
+  myAccountRequest: [MyAccountRequest!]!
+  listUser: [User!]!
+  listAdsPlacement: [AdsPlacement!]!
+  getAllAdsAccount: [SimpleAdsAccount!]!
+  getAllAdsContent(
+    limit: Int = 10
+    utoken: String!
+    accountId: String!
+  ): [ResponseAdsContent!]
+  getAllAdsAudience(
+    limit: Int = 10
+    utoken: String!
+    accountId: String!
+  ): [ResponseAdsAudience!]
+  getAllAdsCamoaign(
+    limit: Int = 10
+    utoken: String!
+    accountId: String!
+  ): [ResponseAdsCampaign!]
+  getAdsBalance(input: InputQueryAdsBalance): DataAdsBalance!
+  getAdsCampaignReview: [DataAdsCampaign!]!
+  getAdsCampaignPublished: [DataAdsCampaign!]!
+  getAllPaymentMethod: [PaymentMethod!]!
+  getDuePayment(adsAccountId: ID!): PaymentDetail
+  campaigns(filter: CampaignsFilter, limit: Int, offset: Int): [Campaign!]!
+  adsContents(filter: AdsContentsFilter, limit: Int, offset:Int): [AdsContent!]!
+  audiences(filter: AudienceFilter, limit: Int, offset: Int): [Audience!]!
+}
+
+type Mutation {
+  updateAdsAccountName(input: InputEditAdsAccountName!): NestedAdsAccount!
+
+  removeUserFromAdsAccount(input: RemoveUserFromAdsAccount!): AdsAccountMember!
+
+  selectApprover(input: InputSelectApprover!): AdsAccount!
+
+  leaveAdsAccount(input: InputLeaveAdsAccount!): AdsAccountMember!
+
+  editUserRole(input: InputEditUserRole!): AdsAccountMember!
+
+  inviteMember(input: InputInviteMember!): MyAccountRequest!
+
+  respondInvitation(input: InputRespondInvitation!): ResponseRespondInvitation!
+
+  cancelInvitation(input: InputCancelInvitation!): AdsAccountInvitation!
+
+  createAdsPlacement(input: InputAdsPlacement!): AdsPlacement!
+
+  editAdsPlacement(input: InputEditAdsPlacement!): AdsPlacement!
+
+  toggleAdsPlacement(
+    input: InputToggleAdsPlacement!
+  ): ResponseToggleAdsPacement!
+
+  editStatusCampaignReview(input: EventCampaignReview!): ResponseEventCampaign!
+
+  editStatusCampaignPublished(
+    input: EventCampaignPublished!
+  ): ResponseEventCampaign!
+
+  topupPayment(input: InputTopup): PaymentDetail!
+
+  checkPayment(topupId: ID!): PaymentDetail!
+
+  createCampaign(input: InputCampaign): Campaign!
+
+  createAudience(input: InputAudience): Audience!
+
+  createAdsContent(input: InputAdsContent): AdsContent!
+
+  createPlacementContent(input: InputPlacementContentDirect): PlacementContent!
+
+  updateCampaign(input: InputUpdateCampaign): Campaign!
+
+  updateAudience(input: InputUpdateAudience): Audience!
+
+  updateAdsContent(input: InputUpdateAdsContent): AdsContent!
+
+  updatePlacementContent(input: InputUpdatePlacementContent): PlacementContent!
+
+  deleteCampaign(campaignId: ID!): DeletedCampaign!
+
+  deleteAudience(audienceId: ID!): DeletedAudience!
+
+  deleteAdsContent(adsContentId: ID!): DeletedAdsContent!
+
+  deletePlacementContent(placementContentId: ID!): DeletedPlacementContent!
+
+  publishCampaign(campaignId: ID!): Campaign!
+}

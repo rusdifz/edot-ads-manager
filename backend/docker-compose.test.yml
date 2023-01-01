@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    image: registry.gitlab.com/maintainer-smartek/edot-ads-manager/backend:0.1.1
+    environment:
+      POSTGRES_HOST: smartek-edot-3-dev.cjaumzwr1isa.ap-northeast-1.rds.amazonaws.com
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Emifly123!
+      POSTGRES_DB: smartek_edot
+      POSTGRES_PORT: 5432
+      GIN_MODE: release
+      GIN_PORT: ":3000"
+      SSO_NAME_APP: superAppNew
+      SSO_SECRET_KEY: a71d34c35afb1ff3f12c43a2
+      STAGE: 'stage'
+    restart: on-failure
+    ports:
+      - 3000:3000

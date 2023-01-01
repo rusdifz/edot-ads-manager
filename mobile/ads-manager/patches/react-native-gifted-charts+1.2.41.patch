@@ -1,0 +1,208 @@
+diff --git a/node_modules/react-native-gifted-charts/src/BarChart/Animated2DWithGradient.tsx b/node_modules/react-native-gifted-charts/src/BarChart/Animated2DWithGradient.tsx
+index 9557d91..d0f77f4 100644
+--- a/node_modules/react-native-gifted-charts/src/BarChart/Animated2DWithGradient.tsx
++++ b/node_modules/react-native-gifted-charts/src/BarChart/Animated2DWithGradient.tsx
+@@ -1,3 +1,5 @@
++// @ts-nocheck
++
+ import React, {useEffect, useState} from 'react';
+ import {
+   View,
+diff --git a/node_modules/react-native-gifted-charts/src/BarChart/RenderBars.tsx b/node_modules/react-native-gifted-charts/src/BarChart/RenderBars.tsx
+index 2e807d2..ecbb777 100644
+--- a/node_modules/react-native-gifted-charts/src/BarChart/RenderBars.tsx
++++ b/node_modules/react-native-gifted-charts/src/BarChart/RenderBars.tsx
+@@ -1,3 +1,5 @@
++// @ts-nocheck
++
+ import React, {Component} from 'react';
+ import {View, TouchableOpacity, Animated, Text, ColorValue} from 'react-native';
+ import ThreeDBar from '../Components/ThreeDBar';
+diff --git a/node_modules/react-native-gifted-charts/src/BarChart/RenderStackBars.tsx b/node_modules/react-native-gifted-charts/src/BarChart/RenderStackBars.tsx
+index 1aeffc1..453df28 100644
+--- a/node_modules/react-native-gifted-charts/src/BarChart/RenderStackBars.tsx
++++ b/node_modules/react-native-gifted-charts/src/BarChart/RenderStackBars.tsx
+@@ -1,3 +1,5 @@
++// @ts-nocheck
++
+ import React, {Component} from 'react';
+ import {View, TouchableOpacity, Text, ColorValue} from 'react-native';
+ import LinearGradient from 'react-native-linear-gradient';
+diff --git a/node_modules/react-native-gifted-charts/src/BarChart/index.tsx b/node_modules/react-native-gifted-charts/src/BarChart/index.tsx
+index f9688b6..1e51e26 100644
+--- a/node_modules/react-native-gifted-charts/src/BarChart/index.tsx
++++ b/node_modules/react-native-gifted-charts/src/BarChart/index.tsx
+@@ -1,3 +1,5 @@
++// @ts-nocheck
++
+ import React, {
+   Fragment,
+   useCallback,
+diff --git a/node_modules/react-native-gifted-charts/src/Components/AnimatedBar/index.tsx b/node_modules/react-native-gifted-charts/src/Components/AnimatedBar/index.tsx
+index 7a85db9..a694c9d 100644
+--- a/node_modules/react-native-gifted-charts/src/Components/AnimatedBar/index.tsx
++++ b/node_modules/react-native-gifted-charts/src/Components/AnimatedBar/index.tsx
+@@ -1,3 +1,5 @@
++// @ts-nocheck
++
+ import React, {useEffect, useState} from 'react';
+ import {
+   View,
+diff --git a/node_modules/react-native-gifted-charts/src/Components/lineSvg.tsx b/node_modules/react-native-gifted-charts/src/Components/lineSvg.tsx
+index 61691fd..e846f04 100644
+--- a/node_modules/react-native-gifted-charts/src/Components/lineSvg.tsx
++++ b/node_modules/react-native-gifted-charts/src/Components/lineSvg.tsx
+@@ -1,3 +1,5 @@
++// @ts-nocheck
++
+ import * as React from 'react';
+ import {ColorValue} from 'react-native';
+ import Svg, {G, Path} from 'react-native-svg';
+diff --git a/node_modules/react-native-gifted-charts/src/LineChart/LineChartBicolor.tsx b/node_modules/react-native-gifted-charts/src/LineChart/LineChartBicolor.tsx
+index cc468cc..7704eac 100644
+--- a/node_modules/react-native-gifted-charts/src/LineChart/LineChartBicolor.tsx
++++ b/node_modules/react-native-gifted-charts/src/LineChart/LineChartBicolor.tsx
+@@ -1,3 +1,27 @@
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
+ import React, {
+   Fragment,
+   useCallback,
+diff --git a/node_modules/react-native-gifted-charts/src/LineChart/index.tsx b/node_modules/react-native-gifted-charts/src/LineChart/index.tsx
+index 8ef5ecc..4c56ab3 100644
+--- a/node_modules/react-native-gifted-charts/src/LineChart/index.tsx
++++ b/node_modules/react-native-gifted-charts/src/LineChart/index.tsx
+@@ -1,3 +1,15 @@
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
+ import React, {
+   Fragment,
+   useCallback,
+diff --git a/node_modules/react-native-gifted-charts/src/PieChart/index.tsx b/node_modules/react-native-gifted-charts/src/PieChart/index.tsx
+index eae4434..bc689bf 100644
+--- a/node_modules/react-native-gifted-charts/src/PieChart/index.tsx
++++ b/node_modules/react-native-gifted-charts/src/PieChart/index.tsx
+@@ -1,3 +1,27 @@
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
+ import React, {useState} from 'react';
+ import {View, ColorValue} from 'react-native';
+ import {colors} from './colors';
+diff --git a/node_modules/react-native-gifted-charts/src/PieChart/main.tsx b/node_modules/react-native-gifted-charts/src/PieChart/main.tsx
+index d524aa1..bd4e211 100644
+--- a/node_modules/react-native-gifted-charts/src/PieChart/main.tsx
++++ b/node_modules/react-native-gifted-charts/src/PieChart/main.tsx
+@@ -1,3 +1,27 @@
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
+ import React from 'react';
+ import {ColorValue, View} from 'react-native';
+ import Svg, {
+diff --git a/node_modules/react-native-gifted-charts/src/utils/index.tsx b/node_modules/react-native-gifted-charts/src/utils/index.tsx
+index 44aea13..4b22654 100644
+--- a/node_modules/react-native-gifted-charts/src/utils/index.tsx
++++ b/node_modules/react-native-gifted-charts/src/utils/index.tsx
+@@ -1,3 +1,27 @@
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
++// @ts-nocheck
++
+ export const getCumulativeWidth = (
+   data: any,
+   index: number,
